@@ -21,10 +21,11 @@ class DaoJdbc {
         return conn!!
     }
 
-    fun save(item: Item) {
+    fun save(item: Item): Item {
         val sql = "insert into items(id, name, description)" +
                 " values(${item.id}, '${item.name}', '${item.description}')"
         getConn().prepareStatement(sql).executeUpdate()
+        return item
     }
 
     fun update(item: Item) {

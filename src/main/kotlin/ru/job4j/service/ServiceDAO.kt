@@ -3,15 +3,14 @@ package ru.job4j.service
 import ru.job4j.dao.DaoJdbc
 import ru.job4j.model.Item
 
-class ServiceDAO(private val daoJdbc: DaoJdbc) {
+class ServiceDAO(private val daoJdbc: DaoJdbc) : ServiceItem {
+    override fun save(item: Item): Item = daoJdbc.save(item)
 
-    fun save(item: Item) = daoJdbc.save(item)
+    override fun findById(id: Int) = daoJdbc.findItemById(id)
 
-    fun findById(id: Int) = daoJdbc.findItemById(id)
+    override fun findAll() = daoJdbc.getAllItem()
 
-    fun findAll() = daoJdbc.getAllItem()
+    override fun delete(id: Int) = daoJdbc.delete(id)
 
-    fun delete(id: Int) = daoJdbc.delete(id)
-
-    fun update(item: Item) = daoJdbc.update(item)
+    override fun update(item: Item) = daoJdbc.update(item)
 }

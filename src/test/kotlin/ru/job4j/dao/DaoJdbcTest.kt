@@ -11,7 +11,7 @@ class DaoJdbcTest: FunSpec({
     val item = mockk<Item>()
 
     test("addItem") {
-        every { dao.save(item) } returns Unit
+        every { dao.save(item) } returns item
         service.save(item)
         verify(exactly = 1) { dao.save(item) }
     }

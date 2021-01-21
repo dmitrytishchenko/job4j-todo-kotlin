@@ -1,5 +1,11 @@
 create table items(
-id integer primary key,
-name varchar ,
+id serial primary key,
+name varchar,
 description varchar
+);
+
+create table users(
+id serial primary key,
+name varchar,
+password varchar
 );
