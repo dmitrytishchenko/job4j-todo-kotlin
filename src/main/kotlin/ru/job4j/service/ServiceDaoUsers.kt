@@ -3,7 +3,8 @@ package ru.job4j.service
 import ru.job4j.dao.UsersDAO
 import ru.job4j.model.User
 
-class ServiceDaoUsers(private val dao: UsersDAO) : ServiceUsers {
+class ServiceDaoUsers : ServiceUsers {
+    private val dao: UsersDAO = UsersDAO()
     override fun create(user: User) = dao.create(user)
 
     override fun findById(id: Int): User = dao.findById(id)
